@@ -1,4 +1,8 @@
 #include "main.h"
+/**
+ * int_conversion - Converts numbers to string.
+ * @number: Numbers to be converted.
+ */
 
 void int_conversion(int number)
 {
