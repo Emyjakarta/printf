@@ -1,28 +1,55 @@
 #include "main.h"
 /**
- *
- *
+ * _printf-function that produces output according to a format
+ * Return: the number of characters printed (excluding
+ * the null byte used to end output to strings)
+ * write output to stdout, the standard output stream
+ * @format: is a character string. The format string is composed of
+ * zero or more directives. See man 3 printf for more detail.
+ * You need to handle the following conversion specifiers: c, s, %
+ * You don’t have to reproduce the buffer handling of
+ * the C library printf function
+ * You don’t have to handle the flag characters
+ * You don’t have to handle field width
+ * You don’t have to handle precision
+ * You don’t have to handle the length modifiers
  */
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	const char *Q = format;
-	int length = 0;
-	
+	int length = 0, string_length;
+
 	va_start(ptr, format);
-	while (*Q != '\0')
+	if (format == NULL)
+		return (-1);
+	while (*format)
 	{
-		length++;
-	}
-	Q = format;
-	while (*Q != '\0')
-	{
-		write(1, Q, 1);
-		Q++;
+		if (*format != '%')
+		{
+			write(1, format, 1);
+			length++;
+		}
+		else
+		{
+			format++;
+			if (*format == '\0')
+				break;
+			if (*format == '%' || *format == 'c')
+			{
+				write(1, format, 1);
+				length++;
+			}
+			else if (*format == 's')
+			{
+				char *string = va_arg(ptr, char *);
+
+				string_length = len_str(string);
+				write(1, string, string_length);
+				length += string_length;
+			}
+		}
+		format++;
 	}
 	va_end(ptr);
 	return (length);
 }
-
-
- 
