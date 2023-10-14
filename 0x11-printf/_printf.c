@@ -17,7 +17,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	int length = 0, string_length;
+	int length = 0, string_length, num;
 
 	va_start(ptr, format);
 	if (format == NULL)
@@ -36,16 +36,20 @@ int _printf(const char *format, ...)
 				break;
 			if (*format == '%' || *format == 'c')
 			{
-				write(1, format, 1);
-				length++;
+				write(1, format, 1), length++;
 			}
 			else if (*format == 's')
 			{
 				char *string = va_arg(ptr, char *);
 
-				string_length = len_str(string);
-				write(1, string, string_length);
+				string_length = len_str(string), write(1, string, string_length);
 				length += string_length;
+			}
+			else if (*format == 'd' || *format == 'i')
+			{
+				num = va_arg(ptr, int);
+				int_conversion(num);
+
 			}
 		}
 		format++;
