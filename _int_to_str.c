@@ -1,12 +1,15 @@
 #include "main.h"
 /**
  * num_to_str - Converts integers to string and print on the buffer.
- * @str: string to be printed on the buffer
+ * @num: Integer to be converted.
+ * @str: string to be printed on the buffer.
  */
 void num_to_str(int num, char *str)
 {
-	int Q = 0, R;
+	int Q = 0, R = 0;
 	int _is_minus = 0;
+	int remnant;
+	char temp;
 
 	if (num < 0)
 	{
@@ -21,7 +24,7 @@ void num_to_str(int num, char *str)
 	{
 		while (num != 0)
 		{
-			int remnant = num % 10;
+			remnant = num % 10;
 			str[Q++] = remnant + '0';
 			num = num / 10;
 		}
@@ -30,10 +33,9 @@ void num_to_str(int num, char *str)
 	{
 		str[Q++] = '-';
 	}
-	R = 0;
 	while (R < Q / 2)
 	{
-		char temp = str[R];
+		temp = str[R];
 		str[R] = str[Q - R - 1];
 		str[Q - R - 1] = temp;
 		R++;
