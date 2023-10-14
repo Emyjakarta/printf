@@ -18,6 +18,7 @@ int _printf(const char *format, ...)
 {
 	va_list ptr;
 	int length = 0, string_length, num;
+	unsigned int number;
 
 	va_start(ptr, format);
 	if (format == NULL)
@@ -50,6 +51,11 @@ int _printf(const char *format, ...)
 				num = va_arg(ptr, int);
 				int_conversion(num);
 
+			}
+			else if (*format == 'b')
+			{
+				number = va_arg(ptr, unsigned int);
+				_convert_to_binary(number);
 			}
 		}
 		format++;
