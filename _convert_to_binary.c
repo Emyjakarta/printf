@@ -1,4 +1,8 @@
 #include "main.h"
+/**
+ * _convert_to_binary - Print an unsigned integer in a binary format.
+ * @num: Unsigned integer.
+ */
 
 void _convert_to_binary(unsigned int num)
 {
