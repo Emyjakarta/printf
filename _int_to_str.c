@@ -1,5 +1,8 @@
 #include "main.h"
-
+/**
+ * num_to_str - Converts integers to string and print on the buffer.
+ * @str: string to be printed on the buffer
+ */
 void num_to_str(int num, char *str)
 {
 	int Q = 0, R;
