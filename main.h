@@ -5,6 +5,17 @@
 #include <unistd.h>
 #include <string.h>
 
+typedef struct {
+	char specify;
+	void (*handler)(va_list);
+} Handle_Format;
+
+Handle_Format *get_handle_format();
+
+void c_handler(va_list ptr);
+void s_handler(va_list ptr);
+void b_handler(va_list ptr);
+void d_handler(va_list ptr);
 int _printf(const char *format, ...);
 int len_str(char *P);
 void num_to_str(int num, char *str);

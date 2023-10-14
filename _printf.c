@@ -17,8 +17,8 @@
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	int length = 0, string_length, num;
-	unsigned int number;
+	int length = 0, Q, locate;
+	Handle_Format *handle_format = get_handle_format();
 
 	va_start(ptr, format);
 	if (format == NULL)
@@ -35,27 +35,21 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 				break;
-			if (*format == '%' || *format == 'c')
+			locate = 0;
+			for (Q = 0; handle_format[Q].specify != '\0'; Q++)
 			{
-				write(1, format, 1), length++;
+				if (handle_format[Q].specify == *format)
+				{
+					if (handle_format[Q].handler != NULL)
+						handle_format[Q].handler(ptr);
+					locate = 1;
+					break;
+				}
 			}
-			else if (*format == 's')
+			if (!locate)
 			{
-				char *string = va_arg(ptr, char *);
-
-				string_length = len_str(string), write(1, string, string_length);
-				length += string_length;
-			}
-			else if (*format == 'd' || *format == 'i')
-			{
-				num = va_arg(ptr, int);
-				int_conversion(num);
-
-			}
-			else if (*format == 'b')
-			{
-				number = va_arg(ptr, unsigned int);
-				_convert_to_binary(number);
+				write(1, format - 1, 2);
+				length += 2;
 			}
 		}
 		format++;
