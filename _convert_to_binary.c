@@ -1,14 +1,14 @@
 #include "main.h"
 /**
- * b_handler- Print an unsigned integer in a binary format.
- * @ptr: variable of type struct
- * Return:length.
+ * b_handler - Print an unsigned integer in a binary format.
+ * @ptr: variable of type struct.
+ * Return:length of ptr.
  */
 
 int b_handler(va_list ptr)
 {
-	int Q, length = 0;
 	int bin_str[32];
+	int Q, length = 0;
 	unsigned int num;
 
 	num = va_arg(ptr, unsigned int);
