@@ -40,13 +40,13 @@ int _printf(const char *format, ...)
 		}
 		if (format[Q + 1] == '%')
 		{
-			write(1, format, 1);
+			write(1, &format[Q], 1);
 			length++;
 			Q += 2;
 			continue;
 		}
 		length++;
-		write(1, format, 1);
+		write(1, &format[Q], 1);
 		Q++;
 	}
 	va_end(ptr);
