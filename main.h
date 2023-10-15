@@ -4,8 +4,15 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-
-typedef struct {
+/**
+ * struct Handle_Format - renaming struct to Handle_Format
+ * @specify: first element of type char
+ * @handler: function pointer that returns void
+ *
+ * Description: Longer description
+ */
+typedef struct Handle_Format
+{
 	char specify;
 	void (*handler)(va_list);
 } Handle_Format;

@@ -33,7 +33,7 @@ void num_to_str(int num, char *str)
 	{
 		str[Q++] = '-';
 	}
-	while (R < Q / 2)
+	while (Q / 2 > R)
 	{
 		temp = str[R];
 		str[R] = str[Q - R - 1];

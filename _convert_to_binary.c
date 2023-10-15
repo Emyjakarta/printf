@@ -22,7 +22,7 @@ void _convert_to_binary(unsigned int num)
 		bin_str[l] = bin_str[r];
 		bin_str[r] = temp;
 		l++;
-		r++;
+		r--;
 	}
 	bin_str[Q] = '\0';
 	write(1, bin_str, Q);
