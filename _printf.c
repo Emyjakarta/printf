@@ -19,10 +19,11 @@ int _printf(const char *format, ...)
 	va_list ptr;
 	unsigned int length = 0, Q = 0;
 
-	va_start(ptr, format);
 	if (format == NULL)
 		return (-1);
-	while (format[Q])
+	va_start(ptr, format);
+
+	while (format[Q] != '\0')
 	{
 		for (; format[Q] != '%' && format[Q]; Q++)
 		{
@@ -45,8 +46,8 @@ int _printf(const char *format, ...)
 			Q += 2;
 			continue;
 		}
-		length++;
 		write(1, &format[Q], 1);
+		length++;
 		Q++;
 	}
 	va_end(ptr);

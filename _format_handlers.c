@@ -39,34 +39,8 @@ int percent_handler(va_list ptr)
 int d_handler(va_list ptr)
 {
 	int num = va_arg(ptr, int);
-	int str[10];
-	int Q, R, Add, length;
 
-	length = 0;
-	R = 1000000000;
-	str[0] = num / R;
-	for (Q = 1; Q < 10; Q++)
-	{
-		R /= 10;
-		str[Q] = (num / R) % 10;
-	}
-	if (num < 0)
-	{
-		putchar('-');
-		length++;
-		for (Q = 0; Q < 10; Q++)
-			str[Q] *= -1;
-	}
-	for (Q = 0, Add = 0; Q < 10; Q++)
-	{
-		Add += str[Q];
-		if (Add != 0 || Q == 9)
-		{
-			putchar('0' + str[Q]);
-			length++;
-		}
-	}
-	return (length);
+	return (int_conversion(num));
 }
 /**
  * get_handle_format-checks the conversion specifiers
@@ -81,15 +55,15 @@ int get_handle_format(const char *format, unsigned int *length, va_list ptr)
 	Handle_Format handle_format[] = {
 		{"c", c_handler},
 		{"s", s_handler},
+		{"%", percent_handler},
 		{"d", d_handler},
 		{"i", d_handler},
 		{"b", b_handler},
-		{"%", percent_handler},
 		{NULL, NULL}
 	};
 	for (Q = 0; handle_format[Q].specify != NULL; Q++)
 	{
-		if (*(handle_format[Q].specify) == *format)
+		if (*format == *(handle_format[Q].specify))
 		{
 			*length += handle_format[Q].handler(ptr);
 			return (1);

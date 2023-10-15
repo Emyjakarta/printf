@@ -25,5 +25,8 @@ int b_handler(va_list ptr);
 int d_handler(va_list ptr);
 int percent_handler(va_list);
 int _printf(const char *format, ...);
+int len_str(char *P);
+int int_conversion(int number);
+int num_to_str(int num, char *str);
 
 #endif /* MAIN_H */
