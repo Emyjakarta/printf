@@ -7,8 +7,7 @@
 void c_handler(va_list ptr)
 {
 	char c = va_arg(ptr, int);
-
-	write(1, &c, 1);
+		write(1, &c, 1);
 }
 /**
  * s_handler-handle strings
@@ -41,8 +40,9 @@ void b_handler(va_list ptr)
 void d_handler(va_list ptr)
 {
 	int num = va_arg(ptr, int);
-
-	int_conversion(num);
+	char str[20];
+	int length = num_to_str(num, str);
+	write(1, str, length);
 }
 Handle_Format *get_handle_format()
 {
@@ -51,8 +51,8 @@ Handle_Format *get_handle_format()
 		{'s', s_handler},
 		{'d', d_handler},
 		{'b', b_handler},
-		{'%', NULL},
 		{'\0', NULL},
+		{'%', NULL},
 	};
 	return (handle_format);
 }

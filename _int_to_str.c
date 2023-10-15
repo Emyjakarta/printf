@@ -4,9 +4,9 @@
  * @num: Integer to be converted.
  * @str: string to be printed on the buffer.
  */
-void num_to_str(int num, char *str)
+int num_to_str(int num, char *str)
 {
-	int Q = 0, R = 0;
+	int Q = 0, R = 0, length;
 	int _is_minus = 0;
 	int remnant;
 	char temp;
@@ -40,5 +40,7 @@ void num_to_str(int num, char *str)
 		str[Q - R - 1] = temp;
 		R++;
 	}
+	length = Q;
 	str[Q] = '\0';
+	return length;
 }
