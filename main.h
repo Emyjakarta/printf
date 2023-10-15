@@ -14,21 +14,16 @@
  */
 typedef struct Handle_Format
 {
-	char specify;
-	void (*handler)(va_list);
+	char *specify;
+	int (*handler)(va_list);
 } Handle_Format;
 
-Handle_Format *get_handle_format();
-int handle_format_specifier(const char *format, Handle_Format *handle_format, va_list ptr);
-
-void c_handler(va_list ptr);
-void s_handler(va_list ptr);
-void b_handler(va_list ptr);
-void d_handler(va_list ptr);
+int get_handle_format(const char *format, unsigned int *length, va_list ptr);
+int c_handler(va_list ptr);
+int s_handler(va_list ptr);
+int b_handler(va_list ptr);
+int d_handler(va_list ptr);
+int percent_handler(va_list);
 int _printf(const char *format, ...);
-int len_str(char *P);
-int num_to_str(int num, char *str);
-void int_conversion(int number);
-void _convert_to_binary(unsigned int num);
 
 #endif /* MAIN_H */

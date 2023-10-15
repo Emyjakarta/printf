@@ -1,29 +1,28 @@
 #include "main.h"
 /**
- * _convert_to_binary - Print an unsigned integer in a binary format.
- * @num: Unsigned integer.
+ * b_handler- Print an unsigned integer in a binary format.
+ * @ptr: variable of type struct
+ * Return:length.
  */
 
-void _convert_to_binary(unsigned int num)
+int b_handler(va_list ptr)
 {
-	int Q, l, r;
-	char bin_str[32], temp;
+	int Q, length = 0;
+	int bin_str[32];
+	unsigned int num;
 
+	num = va_arg(ptr, unsigned int);
 	Q = 0;
 	while (num > 0)
 	{
-		bin_str[Q++] = (num % 2) + '0';
+		bin_str[Q] = num % 2;
 		num /= 2;
+		Q++;
 	}
-	l = 0, r = Q - 1;
-	while (l < r)
+	for (Q = Q - 1; Q >= 0; Q--)
 	{
-		temp = bin_str[l];
-		bin_str[l] = bin_str[r];
-		bin_str[r] = temp;
-		l++;
-		r--;
+		putchar('0' + bin_str[Q]);
+		length++;
 	}
-	bin_str[Q] = '\0';
-	write(1, bin_str, Q);
+	return (length);
 }

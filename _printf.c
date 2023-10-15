@@ -17,41 +17,37 @@
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	int length = 0, locate;
-	Handle_Format *handle_format = get_handle_format();
+	unsigned int length = 0, Q = 0;
 
 	va_start(ptr, format);
 	if (format == NULL)
 		return (-1);
-	while (*format)
+	while (format[Q])
 	{
-		if (*format != '%')
+		for (; format[Q] != '%' && format[Q]; Q++)
+		{
+			write(1, &format[Q], 1);
+			length++;
+		}
+		if (!format[Q])
+		{
+			return (length);
+		}
+		if (get_handle_format(&format[Q + 1], &length, ptr))
+		{
+			Q += 2;
+			continue;
+		}
+		if (format[Q + 1] == '%')
 		{
 			write(1, format, 1);
 			length++;
+			Q += 2;
+			continue;
 		}
-		else
-		{
-			format++;
-			if (*format == '\0')
-				break;
-			if (*format == '%')
-			{
-				write(1, format, 1);
-				length++;
-			}
-			else
-			{
-				locate = handle_format_specifier(format, handle_format, ptr);
-
-				if (!locate)
-				{
-					write(1, format - 1, 2);
-					length += 2;
-				}
-			}
-		}
-		format++;
+		length++;
+		write(1, format, 1);
+		Q++;
 	}
 	va_end(ptr);
 	return (length);
