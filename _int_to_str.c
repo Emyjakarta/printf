@@ -1,9 +1,15 @@
 #include "main.h"
-
+/**
+ * num_to_str-converts integer to string
+ * @num: integer to be converted
+ * @str: pointer to the string
+ * Return:length of string
+ */
 int num_to_str(int num, char *str)
 {
-	int Q = 0, R;
+	int Q = 0, R, remnant;
 	int _is_minus = 0;
+	char temp;
 
 	if (num < 0)
 	{
@@ -18,7 +24,8 @@ int num_to_str(int num, char *str)
 	{
 		while (num != 0)
 		{
-			int remnant = num % 10;
+			remnant = num % 10;
+
 			str[Q++] = remnant + '0';
 			num = num / 10;
 		}
@@ -28,9 +35,9 @@ int num_to_str(int num, char *str)
 		str[Q++] = '-';
 	}
 	R = 0;
-	while (R < Q / 2)
+	while (Q / 2 > R)
 	{
-		char temp = str[R];
+		temp = str[R];
 		str[R] = str[Q - R - 1];
 		str[Q - R - 1] = temp;
 		R++;
