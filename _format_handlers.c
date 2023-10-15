@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * c_handler - handle characters.
+ * c_handler - Handle characters.
  * @ptr: name of the variable argument list.
  * Return:1 (Success)
  */
@@ -11,7 +11,7 @@ int c_handler(va_list ptr)
 	return (write(1, &c, 1));
 }
 /**
- * s_handler-handle strings
+ * s_handler - Handle strings
  * @ptr: name of the variable argument list
  * Return:length of string
  */
@@ -69,7 +69,7 @@ int d_handler(va_list ptr)
 	return (length);
 }
 /**
- * get_handle_format-checks the conversion specifiers
+ * get_handle_format - Checks the conversion specifiers
  * @format: string of a particular format
  * @length: records the length of the characters printed
  * @ptr: the argument to be printed by _printf
