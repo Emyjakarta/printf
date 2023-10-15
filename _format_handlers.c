@@ -22,9 +22,9 @@ int s_handler(va_list ptr)
 	return (write(1, str, strlen(str)));
 }
 /**
- * percent_handler-handle %
- * @ptr: name of the variable argument list
- * Return:length
+ * percent_handler - HandleS percentage.
+ * @ptr: Variable argument list
+ * Return:length of ptr.
  */
 int percent_handler(va_list ptr)
 {
