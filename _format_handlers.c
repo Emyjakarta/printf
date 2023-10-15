@@ -32,8 +32,8 @@ int percent_handler(va_list ptr)
 	return (write(1, "%", 1));
 }
 /**
- * d_handler-handle integers
- * @ptr: name of the variable argument list
+ * d_handler - Handle integers.
+ * @ptr: Name of the variable argument list.
  * Return:void
  */
 int d_handler(va_list ptr)
