@@ -7,8 +7,8 @@
 
 int b_handler(va_list ptr)
 {
-	int Q, length = 0;
 	int bin_str[32];
+	int Q, length = 0;
 	unsigned int num;
 
 	num = va_arg(ptr, unsigned int);
