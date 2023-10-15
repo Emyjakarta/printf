@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * c_handler-handle characters
- * @ptr: name of the variable argument list
- * Return:1
+ * c_handler - handle characters.
+ * @ptr: name of the variable argument list.
+ * Return:1 (Success)
  */
 int c_handler(va_list ptr)
 {
