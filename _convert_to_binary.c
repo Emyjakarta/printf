@@ -8,7 +8,7 @@
 int b_handler(va_list ptr)
 {
 	int bin_str[32];
-	int Q, lent = 0;
+	int Q, length = 0;
 	unsigned int num;
 
 	num = va_arg(ptr, unsigned int);
@@ -22,7 +22,7 @@ int b_handler(va_list ptr)
 	for (Q = Q - 1; Q >= 0; Q--)
 	{
 		putchar('0' + bin_str[Q]);
-		lent++;
+		length++;
 	}
-	return (lent);
+	return (length);
 }
