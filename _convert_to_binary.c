@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * b_handler- Print an unsigned integer in a binary format.
- * @ptr: variable of type struct
- * Return:length.
+ * b_handler - Print an unsigned integer in a binary format.
+ * @ptr: variable of type struct.
+ * Return:length of ptr.
  */
 
 int b_handler(va_list ptr)
