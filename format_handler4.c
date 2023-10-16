@@ -58,3 +58,31 @@ int X_handler(va_list ptr)
 	hex_to_str(num, num_str, 1);
 	return (write(1, num_str, strlen(num_str)));
 }
+/**
+ * S_handler-handle strings with special formatting for
+ * non-printable characters
+ * @ptr: variable argument list
+ * Return:length of the formatted string
+ */
+int S_handler(va_list ptr)
+{
+	char *str = va_arg(ptr, char *);
+	int length = 0;
+
+	if (str == NULL)
+		return (write(1, "", 0));
+	while (*str)
+	{
+		if (*str >= 32 && *str < 127)
+		{
+			length += write(1, str, 1);
+		}
+		else
+		{
+			length += write(1, "\\x", 2);
+			length += print_hex_value(*str);
+		}
+		str++;
+	}
+	return (length);
+}
