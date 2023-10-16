@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
+
+#define BUFFER_SIZE 1024
 /**
  * struct Handle_Format - renaming struct to Handle_Format
  * @specify: first element of type char
@@ -28,6 +30,7 @@ int u_handler(va_list ptr);
 int o_handler(va_list ptr);
 int x_handler(va_list ptr);
 int X_handler(va_list ptr);
+int S_handler(va_list ptr);
 int _printf(const char *format, ...);
 int len_str(char *P);
 int int_conversion(int number);
@@ -36,5 +39,6 @@ unsigned int u_num_to_str(unsigned int num, char *str);
 int octal_to_str(unsigned int num, char *str);
 int hex_to_str(unsigned int num, char *str, int upper);
 int _itoa(int num, char *str, int base);
+int print_hex_value(char value);
 
 #endif /* MAIN_H */

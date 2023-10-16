@@ -2,7 +2,7 @@
 /**
  * c_handler - Handle characters.
  * @ptr: name of the variable argument list.
- * Return: 1 (Success)
+ * Return:1 (Success)
  */
 int c_handler(va_list ptr)
 {
@@ -11,9 +11,9 @@ int c_handler(va_list ptr)
 	return (write(1, &c, 1));
 }
 /**
- * s_handler - Handle strings.
- * @ptr: Name of the variable argument list.
- * Return: Length of string
+ * s_handler - Handle strings
+ * @ptr: name of the variable argument list
+ * Return:length of string
  */
 int s_handler(va_list ptr)
 {
@@ -29,7 +29,7 @@ int s_handler(va_list ptr)
 /**
  * percent_handler - HandleS percentage.
  * @ptr: Variable argument list
- * Return: Length of ptr.
+ * Return:length of ptr.
  */
 int percent_handler(va_list ptr)
 {
@@ -37,17 +37,46 @@ int percent_handler(va_list ptr)
 	return (write(1, "%", 1));
 }
 /**
- * d_handler- Handle integers.
+ * d_handler - Handle integers.
  * @ptr: Name of the variable argument list.
- * Return: Return void
+ * Return:void
  */
 int d_handler(va_list ptr)
 {
 	int num = va_arg(ptr, int);
-	char num_str[20];
-	int length = _itoa(num, num_str, 10);
+	int str[10];
+	int Q, R, Add, length;
 
-	return (write(1, num_str, length));
+	length = 0;
+	R = 1000000000;
+	if (num < 0)
+	{
+		putchar('-');
+		length++;
+		num = -num;
+	}
+	if (num == 0)
+	{
+		putchar('0');
+		length++;
+		return (length);
+	}
+	str[0] = num / R;
+	for (Q = 1; Q < 10; Q++)
+	{
+		R /= 10;
+		str[Q] = (num / R) % 10;
+	}
+	for (Q = 0, Add = 0; Q < 10; Q++)
+	{
+		Add += str[Q];
+		if (Add != 0 || Q == 9)
+		{
+			putchar('0' + str[Q]);
+			length++;
+		}
+	}
+	return (length);
 }
 /**
  * get_handle_format - Checks the conversion specifiers
@@ -71,7 +100,6 @@ int get_handle_format(const char *format, unsigned int *length, va_list ptr)
 		{"o", o_handler},
 		{"x", x_handler},
 		{"X", X_handler},
-		{"S", S_handler},
 		{NULL, NULL}
 	};
 	for (Q = 0; handle_format[Q].specify != NULL; Q++)
