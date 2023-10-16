@@ -32,5 +32,8 @@ int _printf(const char *format, ...);
 int len_str(char *P);
 int int_conversion(int number);
 int num_to_str(int num, char *str);
+unsigned int u_num_to_str(unsigned int num, char *str);
+int octal_to_str(unsigned int num, char *str);
+int hex_to_str(unsigned int num, char *str, int upper);
 
 #endif /* MAIN_H */
