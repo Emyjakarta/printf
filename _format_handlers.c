@@ -2,7 +2,7 @@
 /**
  * c_handler - Handle characters.
  * @ptr: name of the variable argument list.
- * Return:1 (Success)
+ * Return: 1 (Success)
  */
 int c_handler(va_list ptr)
 {
@@ -11,9 +11,9 @@ int c_handler(va_list ptr)
 	return (write(1, &c, 1));
 }
 /**
- * s_handler - Handle strings
- * @ptr: name of the variable argument list
- * Return:length of string
+ * s_handler - Handle strings.
+ * @ptr: Name of the variable argument list.
+ * Return: Length of string
  */
 int s_handler(va_list ptr)
 {
@@ -29,7 +29,7 @@ int s_handler(va_list ptr)
 /**
  * percent_handler - HandleS percentage.
  * @ptr: Variable argument list
- * Return:length of ptr.
+ * Return: Length of ptr.
  */
 int percent_handler(va_list ptr)
 {
@@ -37,9 +37,9 @@ int percent_handler(va_list ptr)
 	return (write(1, "%", 1));
 }
 /**
- * d_handler - Handle integers.
+ * d_handler] - Handle integers.
  * @ptr: Name of the variable argument list.
- * Return:void
+ * Return: Return void
  */
 int d_handler(va_list ptr)
 {
