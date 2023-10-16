@@ -77,7 +77,7 @@ int octal_to_str(unsigned int number, char *str)
  * representation should be uppercase or lowercase
  * Return:1 if uppercase, 0 if lowercase
  */
-int hex_to_str(unsigned int number, char *str, int upper)
+int hex_to_str(unsigned long number, char *str, int upper)
 {
 	int length = 0, Q;
 	char temp;

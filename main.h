@@ -37,8 +37,9 @@ int int_conversion(int number);
 int num_to_str(int num, char *str);
 unsigned int u_num_to_str(unsigned int num, char *str);
 int octal_to_str(unsigned int num, char *str);
-int hex_to_str(unsigned int num, char *str, int upper);
+int hex_to_str(unsigned long num, char *str, int upper);
 int _itoa(int num, char *str, int base);
 int print_hex_value(char value);
+int p_handler(va_list ptr);
 
 #endif /* MAIN_H */
