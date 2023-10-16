@@ -2,21 +2,21 @@
 /**
  * b_handler - Print an unsigned integer in a binary format.
  * @ptr: variable of type struct.
- * Return:length of ptr.
+ * Return:Length of ptr.
  */
 
 int b_handler(va_list ptr)
 {
 	int bin_str[32];
 	int Q, length = 0;
-	unsigned int num;
+	unsigned int number;
 
-	num = va_arg(ptr, unsigned int);
+	number = va_arg(ptr, unsigned int);
 	Q = 0;
-	while (num > 0)
+	while (number > 0)
 	{
-		bin_str[Q] = num % 2;
-		num /= 2;
+		bin_str[Q] = number % 2;
+		number /= 2;
 		Q++;
 	}
 	for (Q = Q - 1; Q >= 0; Q--)
