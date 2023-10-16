@@ -19,7 +19,12 @@ int s_handler(va_list ptr)
 {
 	char *str = va_arg(ptr, char *);
 
-	return (write(1, str, strlen(str)));
+	if (str == NULL)
+	{
+		return (write(1, "", 0));
+	}
+	else
+		return (write(1, str, strlen(str)));
 }
 /**
  * percent_handler - HandleS percentage.
