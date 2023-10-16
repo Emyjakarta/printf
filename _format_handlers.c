@@ -39,39 +39,10 @@ int percent_handler(va_list ptr)
 int d_handler(va_list ptr)
 {
 	int num = va_arg(ptr, int);
-	int str[10];
-	int Q, R, Add, length;
+	char num_str[20];
+	int length = _itoa(num, num_str, 10);
 
-	length = 0;
-	R = 1000000000;
-	if (num < 0)
-	{
-		putchar('-');
-		length++;
-		num = -num;
-	}
-	if (num == 0)
-	{
-		putchar('0');
-		length++;
-		return (length);
-	}
-	str[0] = num / R;
-	for (Q = 1; Q < 10; Q++)
-	{
-		R /= 10;
-		str[Q] = (num / R) % 10;
-	}
-	for (Q = 0, Add = 0; Q < 10; Q++)
-	{
-		Add += str[Q];
-		if (Add != 0 || Q == 9)
-		{
-			putchar('0' + str[Q]);
-			length++;
-		}
-	}
-	return (length);
+	return (write(1, num_str, length));
 }
 /**
  * get_handle_format - Checks the conversion specifiers

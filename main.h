@@ -35,5 +35,6 @@ int num_to_str(int num, char *str);
 unsigned int u_num_to_str(unsigned int num, char *str);
 int octal_to_str(unsigned int num, char *str);
 int hex_to_str(unsigned int num, char *str, int upper);
+int _itoa(int num, char *str, int base);
 
 #endif /* MAIN_H */
