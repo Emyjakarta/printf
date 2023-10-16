@@ -19,6 +19,8 @@ int s_handler(va_list ptr)
 {
 	char *str = va_arg(ptr, char *);
 
+	if (str == NULL)
+		str = "";
 	return (write(1, str, strlen(str)));
 }
 /**
