@@ -91,6 +91,10 @@ int get_handle_format(const char *format, unsigned int *length, va_list ptr)
 		{"d", d_handler},
 		{"i", d_handler},
 		{"b", b_handler},
+		{"u", u_handler},
+		{"o", o_handler},
+		{"x", x_handler},
+		{"X", X_handler},
 		{NULL, NULL}
 	};
 	for (Q = 0; handle_format[Q].specify != NULL; Q++)
