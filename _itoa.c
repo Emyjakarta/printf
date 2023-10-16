@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * _itoa-convert an integer to a string
- * @num: integer to be converted
+ * _itoa - Converts an integers to a string.
+ * @num: Integers to be converted
  * @str: Buffer to store the resulting string
- * @base: base for the numerical conversion
- * Return:Length of the resulting string
+ * @base: Base for the numerical conversion
+ * Return: Length of the resulting string
  */
 int _itoa(int num, char *str, int base)
 {
