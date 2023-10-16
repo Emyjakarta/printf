@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * u_num_to_str-converts an unsigned integer to string
+ * u_num_to_str - Converts an unsigned integer to string.
  * @num: unsigned integer to be converted
  * @str: pointer to the string
  * Return:length of string
