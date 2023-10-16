@@ -17,7 +17,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	size_t length = 0, size_t Q = 0;
+	unsigned int length = 0, Q = 0;
 	char buffer[BUFFER_SIZE];
 	int buffer_index = 0;
 
@@ -50,10 +50,10 @@ int _printf(const char *format, ...)
 		}
 		buffer[buffer_index++] = format[Q];
 	}
+	va_end(ptr);
 	if (buffer_index > 0)
 	{
 		write(1, buffer, buffer_index), length += buffer_index;
 	}
-	va_end(ptr);
 	return (length);
 }
