@@ -17,22 +17,25 @@
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	unsigned int length = 0, Q = 0;
+	size_t length = 0, size_t Q = 0;
+	char buffer[BUFFER_SIZE];
+	int buffer_index = 0;
 
 	if (format == NULL)
 		return (-1);
 	va_start(ptr, format);
 
-	while (format[Q] != '\0')
+	for (Q = 0; format[Q] != '\0'; Q++)
 	{
-		for (; format[Q] != '%' && format[Q]; Q++)
+		if (buffer_index == BUFFER_SIZE - 1)
 		{
-			write(1, &format[Q], 1);
-			length++;
+			write(1, buffer, buffer_index), length += buffer_index;
+			buffer_index = 0;
 		}
-		if (!format[Q])
+		if (format[Q] != '%')
 		{
-			return (length);
+			buffer[buffer_index++] = format[Q];
+			continue;
 		}
 		if (get_handle_format(&format[Q + 1], &length, ptr))
 		{
@@ -41,14 +44,15 @@ int _printf(const char *format, ...)
 		}
 		if (format[Q + 1] == '%')
 		{
-			write(1, &format[Q], 1);
-			length++;
-			Q += 2;
+			buffer[buffer_index++] = '%';
+			Q++;
 			continue;
 		}
-		write(1, &format[Q], 1);
-		length++;
-		Q++;
+		buffer[buffer_index++] = format[Q];
+	}
+	if (buffer_index > 0)
+	{
+		write(1, buffer, buffer_index), length += buffer_index;
 	}
 	va_end(ptr);
 	return (length);

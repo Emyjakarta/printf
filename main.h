@@ -5,6 +5,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
+
+#define BUFFER_SIZE 1024
 /**
  * struct Handle_Format - renaming struct to Handle_Format
  * @specify: first element of type char
