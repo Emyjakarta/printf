@@ -8,8 +8,7 @@ int u_handler(va_list ptr)
 {
 	unsigned int num = va_arg(ptr, unsigned int);
 	char u_num_str[20];
-	int length, total_length, l_align = 0;
-	int field_width = 0, zero_padding = 0;
+	int length;
 
 	if (num == 0)
 	{
@@ -18,12 +17,8 @@ int u_handler(va_list ptr)
 		return (write(1, u_num_str, 1));
 	}
 	length = u_num_to_str(num, u_num_str);
-	total_length = length;
-	if (zero_padding && !l_align)
-	{
-		handle_field_width(field_width, total_length, zero_padding, l_align, '0');
-	}
-	return (write(1, u_num_str, length) + total_length);
+
+	return (write(1, u_num_str, length));
 }
 /**
  * o_handler - Handle octal integers.
@@ -34,17 +29,9 @@ int o_handler(va_list ptr)
 {
 	unsigned int num = va_arg(ptr, unsigned int);
 	char num_str[20];
-	int length, total_length;
-	int l_align = 0, field_width = 0, zero_padding = 0;
 
 	octal_to_str(num, num_str);
-	length = strlen(num_str);
-	total_length = length;
-	if (zero_padding && !l_align)
-	{
-		handle_field_width(field_width, total_length, zero_padding, l_align, '0');
-	}
-	return (write(1, num_str, length) + total_length);
+	return (write(1, num_str, strlen(num_str)));
 }
 /**
  * x_handler - Handle lowercase hexadecimal integers
@@ -55,17 +42,9 @@ int x_handler(va_list ptr)
 {
 	unsigned int num = va_arg(ptr, unsigned int);
 	char num_str[20];
-	int length, total_length, l_align = 0;
-	int field_width = 0, zero_padding = 0;
 
 	hex_to_str(num, num_str, 0);
-	length = strlen(num_str);
-	total_length = length;
-	if (zero_padding && !l_align)
-	{
-		handle_field_width(field_width, total_length, zero_padding, l_align, '0');
-	}
-	return (write(1, num_str, length) + total_length);
+	return (write(1, num_str, strlen(num_str)));
 }
 /**
  * X_handler - Handle uppercase hexadecimal integers
@@ -76,17 +55,9 @@ int X_handler(va_list ptr)
 {
 	unsigned int num = va_arg(ptr, unsigned int);
 	char num_str[20];
-	int length, total_length, l_align = 0, field_width = 0;
-	int zero_padding = 0;
 
 	hex_to_str(num, num_str, 1);
-	length = strlen(num_str);
-	total_length = length;
-	if (zero_padding && l_align)
-	{
-		handle_field_width(field_width, total_length, zero_padding, l_align, '0');
-	}
-	return (write(1, num_str, length) + total_length);
+	return (write(1, num_str, strlen(num_str)));
 }
 /**
  * S_handler-handle strings with special formatting for
