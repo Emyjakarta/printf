@@ -17,9 +17,9 @@ int p_handler(va_list ptr)
 	return (length + 2);
 }
 /**
- * r_handler-print reversed string
- * @ptr: variable argument list
- * Return:length of the reversed string
+ * r_handler - Print reversed string.
+ * @ptr: Pariable argument list.
+ * Return: Length of the reversed string.
  */
 int r_handler(va_list ptr)
 {
@@ -33,9 +33,9 @@ int r_handler(va_list ptr)
 	return (length);
 }
 /**
- * R_handler-print Rot13'ed string
- * @ptr: variable argument list
- * Return:length of the Rot13'ed string
+ * R_handler - Print Rot13'ed string.
+ * @ptr: Variable argument list.
+ * Return: Length of the Rot13'ed string.
  */
 int R_handler(va_list ptr)
 {
