@@ -1,9 +1,9 @@
 #include "main.h"
 /**
  * u_num_to_str - Converts an unsigned integer to string.
- * @number: Unsigned integer to be converted
- * @str: Pointer to the string
- * Return:Length of string
+ * @number: Unsigned integer to be converted.
+ * @str: Pointer to the string.
+ * Return:Length of string.
  */
 unsigned int u_num_to_str(unsigned int number, char *str)
 {
@@ -36,9 +36,9 @@ unsigned int u_num_to_str(unsigned int number, char *str)
 	return (strlen(str));
 }
 /**
- * print_hex_value-write the ASCII code value in hexadecimal
+ * print_hex_value - Write the ASCII code value in hexadecimal
  * @value: ASCII value of the non-printable character
- * Return:length of the hexadecimal value (2 characters)
+ * Return: Length of the hexadecimal value (2 characters)
  */
 int print_hex_value(char value)
 {
