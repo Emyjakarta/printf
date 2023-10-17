@@ -43,5 +43,13 @@ int print_hex_value(char value);
 int p_handler(va_list ptr);
 int handle_l_modifier(const char specifier, va_list ptr);
 int handle_h_modifier(const char specifier, va_list ptr);
+int r_handler(va_list ptr);
+int R_handler(va_list ptr);
+int handle_field_width(int field_width, int total_length,
+		int zero_padding, int l_align, char padding_char);
+int handle_precision(int precision, char *num_str);
+int handle_plus_flag(int num);
+int handle_space_flag(int num);
+int handle_hash_flag(int num);
 
 #endif /* MAIN_H */

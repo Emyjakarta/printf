@@ -8,7 +8,8 @@ int u_handler(va_list ptr)
 {
 	unsigned int num = va_arg(ptr, unsigned int);
 	char u_num_str[20];
-	int length;
+	int length, total_length, l_align = 0;
+	int field_width = 0, zero_padding = 0;
 
 	if (num == 0)
 	{
@@ -16,8 +17,13 @@ int u_handler(va_list ptr)
 		u_num_str[1] = '\0';
 		return (write(1, u_num_str, 1));
 	}
-	length = u_num_to_str(num, u_num_str);
-	return (write(1, u_num_str, length));
+	length = u_num_to_str(number, u_num_str);
+	total_length = length;
+	if (zero_padding && !l_align)
+	{
+		handle_field_width(field_width, total_length, zero_padding, l_align, '0');
+	}
+	return (write(1, u_num_str, length) + total_length);
 }
 /**
  * o_handler - Handle octal integers.
@@ -28,9 +34,22 @@ int o_handler(va_list ptr)
 {
 	unsigned int num = va_arg(ptr, unsigned int);
 	char num_str[20];
+	int length, total_length;
+	int l_align = 0, field_width = 0, zero_padding = 0;
 
+<<<<<<< HEAD
 	octal_to_str(num, num_str);
 	return (write(1, num_str, strlen(num_str)));
+=======
+	octal_to_str(number, num_str);
+	length = strlen(num_str);
+	total_length = length;
+	if (zero_padding && !l_align)
+	{
+		handle_field_width(field_width, total_length, zero_padding, l_align, '0');
+	}
+	return (write(1, num_str, length) + total_length);
+>>>>>>> test_printf
 }
 /**
  * x_handler - Handle lowercase hexadecimal integers
@@ -41,9 +60,22 @@ int x_handler(va_list ptr)
 {
 	unsigned int num = va_arg(ptr, unsigned int);
 	char num_str[20];
+	int length, total_length, l_align = 0;
+	int field_width = 0, zero_padding = 0;
 
+<<<<<<< HEAD
 	hex_to_str(num, num_str, 0);
 	return (write(1, num_str, strlen(num_str)));
+=======
+	hex_to_str(number, num_str, 0);
+	length = strlen(num_str);
+	total_length = length;
+	if (zero_padding && !l_align)
+	{
+		handle_field_width(field_width, total_length, zero_padding, l_align, '0');
+	}
+	return (write(1, num_str, length) + total_length);
+>>>>>>> test_printf
 }
 /**
  * X_handler - Handle uppercase hexadecimal integers
@@ -54,9 +86,22 @@ int X_handler(va_list ptr)
 {
 	unsigned int num = va_arg(ptr, unsigned int);
 	char num_str[20];
+	int length, total_length, l_align = 0, field_width = 0;
+	int zero_padding = 0;
 
+<<<<<<< HEAD
 	hex_to_str(num, num_str, 1);
 	return (write(1, num_str, strlen(num_str)));
+=======
+	hex_to_str(number, num_str, 1);
+	length = strlen(num_str);
+	total_length = length;
+	if (zero_padding && l_align)
+	{
+		handle_field_width(field_width, total_length, zero_padding, l_align, '0');
+	}
+	return (write(1, num_str, length) + total_length);
+>>>>>>> test_printf
 }
 /**
  * S_handler-handle strings with special formatting for
