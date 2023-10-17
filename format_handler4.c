@@ -6,17 +6,17 @@
  */
 int u_handler(va_list ptr)
 {
-	unsigned int number = va_arg(ptr, unsigned int);
+	unsigned int num = va_arg(ptr, unsigned int);
 	char u_num_str[20];
 	int length;
 
-	if (number == 0)
+	if (num == 0)
 	{
 		u_num_str[0] = '0';
 		u_num_str[1] = '\0';
 		return (write(1, u_num_str, 1));
 	}
-	length = u_num_to_str(number, u_num_str);
+	length = u_num_to_str(num, u_num_str);
 	return (write(1, u_num_str, length));
 }
 /**
@@ -26,10 +26,10 @@ int u_handler(va_list ptr)
  */
 int o_handler(va_list ptr)
 {
-	unsigned int number = va_arg(ptr, unsigned int);
+	unsigned int num = va_arg(ptr, unsigned int);
 	char num_str[20];
 
-	octal_to_str(number, num_str);
+	octal_to_str(num, num_str);
 	return (write(1, num_str, strlen(num_str)));
 }
 /**
@@ -39,10 +39,10 @@ int o_handler(va_list ptr)
  */
 int x_handler(va_list ptr)
 {
-	unsigned int number = va_arg(ptr, unsigned int);
+	unsigned int num = va_arg(ptr, unsigned int);
 	char num_str[20];
 
-	hex_to_str(number, num_str, 0);
+	hex_to_str(num, num_str, 0);
 	return (write(1, num_str, strlen(num_str)));
 }
 /**
@@ -52,10 +52,10 @@ int x_handler(va_list ptr)
  */
 int X_handler(va_list ptr)
 {
-	unsigned int number = va_arg(ptr, unsigned int);
+	unsigned int num = va_arg(ptr, unsigned int);
 	char num_str[20];
 
-	hex_to_str(number, num_str, 1);
+	hex_to_str(num, num_str, 1);
 	return (write(1, num_str, strlen(num_str)));
 }
 /**

@@ -1,15 +1,15 @@
 #include "main.h"
 /**
  * len_str - Count the number of characters in a string.
- * @PTR: The string to count.
+ * @P: The string to count.
  *
  * Return: Length of the string.
  */
-int len_str(char *PTR)
+int len_str(char *P)
 {
 	int Q = 0;
 
-	while (PTR[Q] != '\0')
+	while (P[Q] != '\0')
 	{
 		Q++;
 	}

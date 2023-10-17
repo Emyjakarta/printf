@@ -43,12 +43,12 @@ int percent_handler(va_list ptr)
  */
 int d_handler(va_list ptr)
 {
-	int num = va_arg(ptr, int);
+	int number = va_arg(ptr, int);
 	char num_str[20];
-	int length = _itoa(num, num_str, 10);
+	int length = _itoa(number, num_str, 10);
 	int total_length = length;
 
-	if (num >= 0)
+	if (number >= 0)
 	{
 		write(1, "+", 1);
 		total_length++;
@@ -70,7 +70,7 @@ int d_handler(va_list ptr)
 int get_handle_format(const char *format, unsigned int *length, va_list ptr)
 {
 	unsigned int Q;
-	int num;
+	int number;
 	Handle_Format handle_format[] = {
 		{"c", c_handler},
 		{"s", s_handler},
@@ -93,8 +93,8 @@ int get_handle_format(const char *format, unsigned int *length, va_list ptr)
 			if (strcmp(handle_format[Q].specify, "d") == 0 ||
 					strcmp(handle_format[Q].specify, "i") == 0)
 			{
-				num = va_arg(ptr, int);
-				*length += int_conversion(num);
+				number = va_arg(ptr, int);
+				*length += int_conversion(number);
 			}
 			else
 			{

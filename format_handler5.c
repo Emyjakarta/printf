@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * p_handler-handle pointers (print in hexadecimal)
- * @ptr: variable argument list
- * Return:length of the printed pointer
+ * p_handler - Handle pointers (print in hexadecimal).
+ * @ptr: Variable argument list.
+ * Return: Length of the printed pointer.
  */
 int p_handler(va_list ptr)
 {

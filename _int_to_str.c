@@ -1,33 +1,33 @@
 #include "main.h"
 /**
  * num_to_str - Converts integer to string.
- * @number: Integer to be converted
+ * @num: Integer to be converted
  * @str: pointer to the string
  * Return:length of string
  */
-int num_to_str(int number, char *str)
+int num_to_str(int num, char *str)
 {
 	int Q = 0, R, remnant;
 	int _is_minus = 0;
 	char temp;
 
-	if (number < 0)
+	if (num < 0)
 	{
 		_is_minus = 1;
-		number = -number;
+		num = -num;
 	}
-	if (number == 0)
+	if (num == 0)
 	{
 		str[Q++] = '0';
 	}
 	else
 	{
-		while (number != 0)
+		while (num != 0)
 		{
-			remnant = number % 10;
+			remnant = num % 10;
 
 			str[Q++] = remnant + '0';
-			number = number / 10;
+			num = num / 10;
 		}
 	}
 	if (_is_minus)
@@ -47,19 +47,19 @@ int num_to_str(int number, char *str)
 }
 /**
  * octal_to_str-convert an unsigned integer to octal representation
- * @number: Unsigned integer to convert
+ * @num: Unsigned integer to convert
  * @str: Output string for octal representation
  * Return:Length of the octal string.
  */
-int octal_to_str(unsigned int number, char *str)
+int octal_to_str(unsigned int num, char *str)
 {
 	int length = 0, Q;
 	char temp;
 
 	do {
-		str[length++] = number % 8 + '0';
-		number /= 8;
-	} while (number != 0);
+		str[length++] = num % 8 + '0';
+		num /= 8;
+	} while (num != 0);
 	for (Q = 0; length / 2 > Q; Q++)
 	{
 		temp = str[Q];
@@ -71,13 +71,13 @@ int octal_to_str(unsigned int number, char *str)
 }
 /**
  * hex_to_str-convert an unsigned integer to hexadecimal representation
- * @number: Unsigned integer to convert
+ * @num: Unsigned integer to convert
  * @str: Output string for octal representation
  * @upper: parameter used to determine whether the hexadecimal
  * representation should be uppercase or lowercase
  * Return:1 if uppercase, 0 if lowercase
  */
-int hex_to_str(unsigned long number, char *str, int upper)
+int hex_to_str(unsigned long num, char *str, int upper)
 {
 	int length = 0, Q;
 	char temp;
@@ -92,9 +92,9 @@ int hex_to_str(unsigned long number, char *str, int upper)
 		strcpy(hex_digits, "0123456789abcdef");
 	}
 	do {
-		str[length++] = hex_digits[number % 16];
-		number /= 16;
-	} while (number != 0);
+		str[length++] = hex_digits[num % 16];
+		num /= 16;
+	} while (num != 0);
 	for (Q = 0; length / 2 > Q; Q++)
 	{
 		temp = str[Q];

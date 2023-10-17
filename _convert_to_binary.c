@@ -9,14 +9,14 @@ int b_handler(va_list ptr)
 {
 	int bin_str[32];
 	int Q, length = 0;
-	unsigned int number;
+	unsigned int num;
 
-	number = va_arg(ptr, unsigned int);
+	num = va_arg(ptr, unsigned int);
 	Q = 0;
-	while (number > 0)
+	while (num > 0)
 	{
-		bin_str[Q] = number % 2;
-		number /= 2;
+		bin_str[Q] = num % 2;
+		num /= 2;
 		Q++;
 	}
 	for (Q = Q - 1; Q >= 0; Q--)

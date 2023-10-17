@@ -1,27 +1,27 @@
 #include "main.h"
 /**
  * u_num_to_str - Converts an unsigned integer to string.
- * @num: unsigned integer to be converted
- * @str: pointer to the string
- * Return:length of string
+ * @number: Unsigned integer to be converted
+ * @str: Pointer to the string
+ * Return:Length of string
  */
-unsigned int u_num_to_str(unsigned int num, char *str)
+unsigned int u_num_to_str(unsigned int number, char *str)
 {
 	unsigned int Q = 0, R, remnant;
 	char temp;
 
-	if (num == 0)
+	if (number == 0)
 	{
 		str[Q++] = '0';
 	}
 	else
 	{
-		while (num != 0)
+		while (number != 0)
 		{
-			remnant = num % 10;
+			remnant = number % 10;
 
 			str[Q++] = remnant + '0';
-			num = num / 10;
+			number = number / 10;
 		}
 	}
 	R = 0;
