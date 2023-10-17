@@ -60,7 +60,7 @@ int X_handler(va_list ptr)
 	return (write(1, num_str, strlen(num_str)));
 }
 /**
- * S_handler-handle strings with special formatting for
+ * S_handler - Handle strings with special formatting for
  * non-printable characters
  * @ptr: variable argument list
  * Return:length of the formatted string
