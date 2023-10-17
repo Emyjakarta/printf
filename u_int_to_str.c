@@ -1,9 +1,9 @@
 #include "main.h"
 /**
  * u_num_to_str - Converts an unsigned integer to string.
- * @number: unsigned integer to be converted
- * @str: pointer to the string
- * Return:length of string
+ * @number: Unsigned integer to be converted
+ * @str: Pointer to the string
+ * Return:Length of string
  */
 unsigned int u_num_to_str(unsigned int number, char *str)
 {
