@@ -8,16 +8,20 @@ int u_handler(va_list ptr)
 {
 	unsigned int number = va_arg(ptr, unsigned int);
 	char u_num_str[20];
-	int length;
+	int length = u_num_to_str(number, u_num_str);
+	int total_length = length;
 
-	if (number == 0)
+	if (number != 0)
 	{
-		u_num_str[0] = '0';
-		u_num_str[1] = '\0';
-		return (write(1, u_num_str, 1));
+		write(1, "+", 1);
+		total_length++;
 	}
-	length = u_num_to_str(number, u_num_str);
-	return (write(1, u_num_str, length));
+	else
+	{
+		write(1, " ", 1);
+		total_length++;
+	}
+	return (write(1, u_num_str, length) + total_length);
 }
 /**
  * o_handler - Handle octal integers.
@@ -28,9 +32,10 @@ int o_handler(va_list ptr)
 {
 	unsigned int number = va_arg(ptr, unsigned int);
 	char num_str[20];
+	int length = octal_to_str(number, num_str);
 
-	octal_to_str(number, num_str);
-	return (write(1, num_str, strlen(num_str)));
+	write(1, "0", 1);
+	return (write(1, num_str, length) + 1);
 }
 /**
  * x_handler - Handle lowercase hexadecimal integers
@@ -41,9 +46,10 @@ int x_handler(va_list ptr)
 {
 	unsigned int number = va_arg(ptr, unsigned int);
 	char num_str[20];
+	int length = hex_to_str(number, num_str, 0);
 
-	hex_to_str(number, num_str, 0);
-	return (write(1, num_str, strlen(num_str)));
+	write(1, "0x", 2);
+	return (write(1, num_str, length) + 2);
 }
 /**
  * X_handler - Handle uppercase hexadecimal integers
@@ -54,9 +60,10 @@ int X_handler(va_list ptr)
 {
 	unsigned int number = va_arg(ptr, unsigned int);
 	char num_str[20];
+	int length = hex_to_str(number, num_str, 1);
 
-	hex_to_str(number, num_str, 1);
-	return (write(1, num_str, strlen(num_str)));
+	write(1, "0X", 2);
+	return (write(1, num_str, length) + 2);
 }
 /**
  * S_handler-handle strings with special formatting for

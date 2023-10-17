@@ -46,8 +46,19 @@ int d_handler(va_list ptr)
 	int num = va_arg(ptr, int);
 	char num_str[20];
 	int length = _itoa(num, num_str, 10);
+	int total_length = length;
 
-	return (write(1, num_str, length));
+	if (num >= 0)
+	{
+		write(1, "+", 1);
+		total_length++;
+	}
+	else
+	{
+		write(1, " ", 1);
+		total_length++;
+	}
+	return (write(1, num_str, length) + total_length);
 }
 /**
  * get_handle_format - Checks the conversion specifiers
