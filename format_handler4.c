@@ -23,7 +23,7 @@ int u_handler(va_list ptr)
 /**
  * o_handler - Handle octal integers.
  * @ptr: Variable argument list.
- * Return: Length of the printed octal integer
+ * Return: Length of the printed octal integer.
  */
 int o_handler(va_list ptr)
 {
@@ -34,9 +34,9 @@ int o_handler(va_list ptr)
 	return (write(1, num_str, strlen(num_str)));
 }
 /**
- * x_handler - Handle lowercase hexadecimal integers
- * @ptr: Variable argument list
- * Return: Length of the printed lowercase hexadecimal integer
+ * x_handler - Handle lowercase hexadecimal integers.
+ * @ptr: Variable argument list.
+ * Return: Length of the printed lowercase hexadecimal integer.
  */
 int x_handler(va_list ptr)
 {
@@ -47,9 +47,9 @@ int x_handler(va_list ptr)
 	return (write(1, num_str, strlen(num_str)));
 }
 /**
- * X_handler - Handle uppercase hexadecimal integers
- * @ptr: Variable argument list
- * Return: Length of the printed uppercase hexadecimal integer
+ * X_handler - Handle uppercase hexadecimal integers.
+ * @ptr: Variable argument list.
+ * Return: Length of the printed uppercase hexadecimal integer.
  */
 int X_handler(va_list ptr)
 {
@@ -60,8 +60,8 @@ int X_handler(va_list ptr)
 	return (write(1, num_str, strlen(num_str)));
 }
 /**
- * S_handler - Handle strings with special formatting for
- * non-printable characters
+ * S_handler - Handle strings with special formatting for.
+ * non-printable character.
  * @ptr: variable argument list
  * Return:length of the formatted string
  */
