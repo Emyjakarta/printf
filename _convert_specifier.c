@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * int_conversion - Takes a number to be converted to string
- * @number: number to be converted
+ * @num: number to be converted
  * Return:converted number string
  */
 int int_conversion(int num)

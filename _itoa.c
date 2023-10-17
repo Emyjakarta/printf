@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _itoa - Converts an integers to a string.
- * @num: Integers to be converted
+ * @number: Integers to be converted
  * @str: Buffer to store the resulting string
  * @base: Base for the numerical conversion
  * Return: Length of the resulting string
