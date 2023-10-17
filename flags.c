@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * handle_plus_flag-handle plus flag
- * @num: number
- * Return:0
+ * handle _ Plus_flag-handle plus flag
+ * @num: Number
+ * Return: 0 (Success)
  */
 int handle_plus_flag(int num)
 {
