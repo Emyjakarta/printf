@@ -41,5 +41,7 @@ int hex_to_str(unsigned long num, char *str, int upper);
 int _itoa(int num, char *str, int base);
 int print_hex_value(char value);
 int p_handler(va_list ptr);
+int handle_l_modifier(const char specifier, va_list ptr);
+int handle_h_modifier(const char specifier, va_list ptr);
 
 #endif /* MAIN_H */
