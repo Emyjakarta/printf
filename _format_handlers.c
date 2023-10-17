@@ -48,7 +48,7 @@ int d_handler(va_list ptr)
 	int total_length = length, print_sign = 0, print_space = 0;
 	int l_align = 0, field_width = 0, precision = 0, zero_padding = 0;
 
-	if (number >= 0)
+	if (num >= 0)
 	{
 		if (print_sign)
 		{
