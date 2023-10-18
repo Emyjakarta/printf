@@ -44,25 +44,23 @@ int percent_handler(va_list ptr)
 int d_handler(va_list ptr)
 {
 	char num_str[20];
-	int num = va_arg(ptr, int), length = _itoa(num, num_str, 10);
+	int num = va_arg(ptr, int), length = int_conversion(num);
 	int total_length = length, print_sign = 0, print_space = 0;
 	int l_align = 0, field_width = 0, precision = 0, zero_padding = 0;
 
 	if (num < 0)
 	{
-		print_sign = 1, num = -num, total_length++;
+		write(1, "-", 1), num = -num, print_sign = 1;
 	}
-	if (num >= 0)
+	else if (num >= 0)
 	{
 		if (print_sign)
 		{
 			write(1, "+", 1);
-			total_length++;
 		}
 		else if (print_space)
 		{
 			write(1, " ", 1);
-			total_length++;
 		}
 	}
 	if (zero_padding && !l_align)
@@ -79,9 +77,8 @@ int d_handler(va_list ptr)
 				handle_field_width(field_width,
 					strlen(num_str), zero_padding, l_align, ' '));
 	}
-	return (handle_field_width(field_width, total_length,
-				zero_padding, l_align, ' ') + (print_sign ? write(1, "-", 1) : 0)
-			+ write(1, num_str, length));
+	return (handle_field_width(0, total_length,
+				0, 0, '0') + (print_sign ? 1 : 0) + write(1, num_str, length));
 }
 /**
  * get_handle_format - Checks the conversion specifiers
