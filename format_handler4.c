@@ -62,8 +62,8 @@ int X_handler(va_list ptr)
 /**
  * S_handler - Handle strings with special formatting for.
  * non-printable character.
- * @ptr: variable argument list
- * Return:length of the formatted string
+ * @ptr: Variable argument list.
+ * Return: Length of the formatted string.
  */
 int S_handler(va_list ptr)
 {
