@@ -11,6 +11,10 @@ int p_handler(va_list ptr)
 	unsigned long address = (unsigned long)pt;
 	int length;
 
+	if (pt == NULL)
+	{
+		return (write(1, "(nil)", 5));
+	}
 	write(1, "0x", 2);
 	length = hex_to_str(address, addr_str, 0);
 	write(1, addr_str, length);
