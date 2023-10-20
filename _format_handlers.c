@@ -81,11 +81,11 @@ int d_handler(va_list ptr)
 				0, 0, '0') + (print_sign ? 1 : 0) + write(1, num_str, length));
 }
 /**
- * get_handle_format - Checks the conversion specifiers
- * @format: string of a particular format
- * @length: records the length of the characters printed
- * @ptr: the argument to be printed by _printf
- * Return:length
+ * get_handle_format - Checks the conversion specifiers.
+ * @format: String of a particular format.
+ * @length: Records the length of the characters printed.
+ * @ptr: The argument to be printed by _printf.
+ * Return: Length.
  */
 int get_handle_format(const char *format, unsigned int *length, va_list ptr)
 {
