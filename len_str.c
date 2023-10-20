@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * len_str - Count the number of characters in a string.
- * @P: The string to count.
+ * @P: The string to be counted.
  *
  * Return: Length of the string.
  */
