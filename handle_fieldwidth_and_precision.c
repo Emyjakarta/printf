@@ -1,12 +1,12 @@
 #include "main.h"
 /**
- * handle_field_width-handle field width
- * @field_width: field width
- * @total_length: total length
- * @zero_padding: padding with 0 if empty
+ * handle_field_width-handle field width.
+ * @field_width: field width.
+ * @total_length: total length.
+ * @zero_padding: padding with 0 if empty.
  * @l_align: left alignment (-)
  * @padding_char: padding characters
- * Return:total length
+ * Return:total length.
  */
 int handle_field_width(int field_width, int total_length,
 		int zero_padding, int l_align, char padding_char)
